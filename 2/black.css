@@ -1,0 +1,9 @@
+body {
+    background: gray;
+}
+#nav {
+    background: black;
+}
+#nav li {
+    border-color: #fff;
+}

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- 头部 -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>控制div属性</title>
+
+<!-- 样式 -->
+<style>
+        #outer {
+            width: 500px;
+            /* 外边距 上，右，下，左 aabbcc*/
+            margin: 0 auto;
+            /* 内边距 上，右，下，左 */
+            padding: 0;
+            /* 属性规定元素中的文本的水平对齐方式 */
+            text-align: center;
+        }
+    
+        #div1 {
+            width: 100px;
+            height: 100px;
+            background: black;
+            margin: 10px auto;
+            /* 使段落生出行内框 */
+            display: block;
+        }
+    </style>
+
+</head>
+
+<!-- 身体 -->
+<body>
+    <!-- 第一个盒模型  按钮-->
+    <div id="outer">
+        <input type="button" value="变宽">
+        <input type="button" value="变高">
+        <input type="button" value="变色">
+        <input type="button" value="隐藏">
+        <input type="button" value="重置">
+    </div>
+    <!-- 第二个盒模型  方块的变换-->
+    <div id="div1"></div>
+
+<!-- 抒写逻辑 -->
+<script>
+        // 
+        var changeStyle = function(elem, attr, value) {
+            elem.style[attr] = value
+        };
+        // 提前获取元素，否则汇报null
+        window.onload = function () {
+            // 通过取标签名获取元素
+            var oBtn = document.getElementsByTagName("input");
+            // 通过id获取元素
+            var oDiv = document.getElementById("div1");
+            var oAtt = ["width","height","background","display","display"];
+            var oVal = ["200px","200px","red","none","block"];
+            // 循环
+             for (let i = 0; i < oBtn.length; i++) {
+                oBtn[i].index = i;
+                oBtn[i].onclick = function () {
+                    console.log(this.index);
+                    this.index==4?oDiv.style.cssText = "":changeStyle(oDiv,oAtt[this.index],oVal[this.index]);    
+                }
+			
+
+            }
+        };
+    </script>
+
+</body>
+</html>
