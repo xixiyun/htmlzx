@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- 头部 -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>函数接收参数弹出</title>
+    <!-- 样式 -->
+    <style>
+        body {
+            /* 行高是字体的1.5倍  tahome代表字体*/
+            font: 12px/1.5 Tahome;
+            text-align: center;
+        }
+
+        code,
+        input,
+        button {
+            /* 规定元素的字体系列 inherit 是继承父类的字体*/
+            font-family: inherit;
+        }
+
+        input {
+            border: 1px solid #ccc;
+            padding: 3px;
+        }
+
+        button {
+            /* 光标设置  */
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<!-- 身体 -->
+
+<body>
+    <p><input type="text" value="北京市"></p>
+    <p><input type="text" value="朝阳区"></p>
+    <p><button>传参</button></p>
+    <!-- 逻辑代码 -->
+    <script>
+        var myFn = function (a, b) {
+            alert(a.value);
+            alert(b.value)
+        };
+        window.onload = function () {
+            var oInput = document.getElementsByTagName("input");
+            var oBtn = document.getElementsByTagName("button")[0];
+            oBtn.onclick = function() {
+                myFn(oInput[0], oInput[1])
+            }
+        };
+    </script>
+
+</body>
+
+</html>
